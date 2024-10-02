@@ -60,7 +60,6 @@ public class AdvancedTextEditor extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         textPane.getDocument().addUndoableEditListener(e -> undoManager.addEdit(e.getEdit()));
     }
-
     private void setupMenu() {
         // 创建菜单栏和各个菜单
         menuBar = new JMenuBar();
@@ -103,7 +102,6 @@ public class AdvancedTextEditor extends JFrame implements ActionListener {
         menuBar.add(helpMenu);
         setJMenuBar(menuBar);
     }
-
     private void setupToolBar() {
         toolBar = new JToolBar();
         addButtonToToolBar("New", newItem);
@@ -393,7 +391,7 @@ public class AdvancedTextEditor extends JFrame implements ActionListener {
     }
 
     private void showAboutDialog() {
-        JOptionPane.showMessageDialog(this, "Advanced Text Editor\nCreated by: [Your Name]");
+        JOptionPane.showMessageDialog(this, "Advanced Text Editor\nCreated by: MingYi Li");
     }
 
     private void showInfoDialog(String message) {
