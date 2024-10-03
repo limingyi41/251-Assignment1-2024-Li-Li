@@ -8,6 +8,7 @@ import java.io.*;
 
 public class TextEditor extends JFrame implements ActionListener {
     JTextArea textArea;
+
     JMenuBar menuBar;
     JMenu fileMenu, editMenu, helpMenu;
     JMenuItem newItem, openItem, saveItem, exitItem;
