@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-public class TextEditor extends JFrame implements ActionListener {
+public class  TextEditor extends JFrame implements ActionListener {
     JTextArea textArea;
     JMenuBar menuBar;
     JMenu fileMenu, editMenu, helpMenu;
