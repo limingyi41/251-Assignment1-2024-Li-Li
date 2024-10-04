@@ -59,4 +59,9 @@ jobs:
 
       # Step 4: 推送 Docker 镜像到 Docker Hub
       - name: Build Docker image
+<<<<<<< HEAD
         run: docker build -t limingyi41/texteditor3:latest .
+=======
+        run: docker build -t limingyi41/texteditor:latest ./text\ editor
+
+>>>>>>> 0e94f52c02987879d6a8d74446e639aece87b8f3
