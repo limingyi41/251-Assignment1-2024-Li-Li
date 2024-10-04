@@ -53,12 +53,12 @@ jobs:
 
       # 使用 Docker 构建镜像
       - name: Build Docker image
-        run: docker build -t your-dockerhub-username/texteditor:latest .
+        run: docker build -t limingyi41/texteditor3:latest .
 
       # 登录 Docker Hub
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.!Lmy200434 }}" | docker login -u "${{limingyi41}}" --password-stdin
 
       # 推送 Docker 镜像到 Docker Hub
       - name: Push Docker image
-        run: docker push your-dockerhub-username/texteditor:latest
+        run: docker push limingyi41/texteditor3:latest
