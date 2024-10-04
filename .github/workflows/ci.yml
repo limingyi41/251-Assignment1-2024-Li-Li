@@ -58,14 +58,11 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       # Step 4: 推送 Docker 镜像到 Docker Hub
-<<<<<<< HEAD
+
       - name: Push Docker image
         run: docker push limingyi41/texteditor3:latest
-=======
+
       - name: Build Docker image
-<<<<<<< HEAD
+
 
         run: docker build -t limingyi41/texteditor:latest ./text\ editor
-
->>>>>>> 0e94f52c02987879d6a8d74446e639aece87b8f3
->>>>>>> 7e8e1299c031d0cc2172062b67ddd1db2594c066
