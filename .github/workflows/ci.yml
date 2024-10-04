@@ -1,14 +1,14 @@
 name: Java CI/CD Workflow
 
-# 触发条件：在推送到 version2.0 或 version3.0 分支时触发
+
 on:
   push:
     branches:
-      - version2.0
-      - version3.0
+
+      - version3.0  
   pull_request:
     branches:
-      - version2.0
+
       - version3.0
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
       - name: Run PMD
         run: mvn pmd:check
 
-      # Step 5: 上传 PMD 报告，使用 `actions/upload-artifact@v3`
+      # Step 5: 上传 PMD 报告，使用 actions/upload-artifact@v3
       - name: Upload PMD report
         uses: actions/upload-artifact@v3
         with:
@@ -43,6 +43,8 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+
+    needs: build  # 需要在构建和质量检查成功后才能运行
 
     steps:
       # Step 1: 检出代码
@@ -53,16 +55,10 @@ jobs:
       - name: Build Docker image
         run: docker build -t limingyi41/texteditor3:latest .
 
-      # Step 3: 登录 Docker Hub
+      # Step 3: 登录 Docker Hub（使用 GitHub Secrets 存储的凭据）
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       # Step 4: 推送 Docker 镜像到 Docker Hub
-
       - name: Push Docker image
         run: docker push limingyi41/texteditor3:latest
-
-      - name: Build Docker image
-
-
-        run: docker build -t limingyi41/texteditor:latest ./text\ editor
