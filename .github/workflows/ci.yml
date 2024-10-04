@@ -34,9 +34,9 @@ jobs:
       - name: Run PMD
         run: mvn pmd:check
 
-      # Step 5: 上传 PMD 报告作为工件
+      # Step 5: 上传 PMD 报告，使用 `actions/upload-artifact@v3`
       - name: Upload PMD report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pmd-report
           path: target/site/pmd.html
@@ -58,5 +58,5 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       # Step 4: 推送 Docker 镜像到 Docker Hub
-      - name: Push Docker image
-        run: docker push limingyi41/texteditor:latest
+      - name: Build Docker image
+        run: docker build -t limingyi41/texteditor:latest .
